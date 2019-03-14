@@ -13,4 +13,8 @@
         completions."
     </string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="save">Salvar</string>
+    <string name="load">Carregar</string>
+    <string name="here">Aqui aparecerá a mensagem</string>
+    <string name="append">Acrescentar</string>
 </resources>

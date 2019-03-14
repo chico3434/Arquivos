@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
                 FileOutputStream fos = null;
                 try {
                     fos = openFileOutput("salvar.txt", Context.MODE_PRIVATE);
-                    fos.write(et.getText().toString().getBytes());
+                    String str = et.getText().toString();
+                    str += "\n";
+                    fos.write(str.getBytes());
                     fos.close();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -56,6 +58,26 @@ public class MainActivity extends AppCompatActivity {
                     fis.close();
                     TextView tv = (TextView) findViewById(R.id.textView);
                     tv.setText(str);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        Button button3 = (Button) findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et = (EditText) findViewById(R.id.editText);
+                FileOutputStream fos = null;
+                try {
+                    fos = openFileOutput("salvar.txt", Context.MODE_APPEND);
+                    String str = et.getText().toString();
+                    str += "\n";
+                    fos.write(str.getBytes());
+                    fos.close();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
